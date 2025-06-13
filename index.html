@@ -33,8 +33,9 @@
       overflow-y: auto;
       margin: 1rem 0;
       padding: 1rem;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid #666;
+      background: rgba(0,0,0,0.85); /* Darker than container */
+      border: 1px solid #444;
+      color: #eee;
     }
     .btn {
       display: inline-block;
@@ -97,13 +98,13 @@
 
   <script>
     // Parse Meraki parameters
-    const p = new URLSearchParams(window.location.search);
-    const grant = p.get("base_grant_url");
-    const cont  = p.get("user_continue_url");
+    const params = new URLSearchParams(window.location.search);
+    const grant    = params.get("base_grant_url");
+    const cont     = params.get("user_continue_url");
 
     // Optional override
-    const override = false;
-    const overrideUrl = "https://2811.wifi.rownet.app/success";
+    const override     = false;
+    const overrideUrl  = "https://2811.wifi.rownet.app/success";
 
     if (!grant || !cont) {
       document.body.innerHTML = "<h2>Invalid request.</h2>";
